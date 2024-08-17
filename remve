@@ -99,4 +99,4 @@ slideIn()
 wait(25)
 slideOut()
 wait(2)
-sound.Looped = false...
+sound.Looped = false
