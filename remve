@@ -1,1 +1,102 @@
-...
+--
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://7362875165"
+sound.Volume =  75
+sound.Looped = false
+sound.Parent = workspace
+sound:Play()
+
+
+local TweenService = game:GetService("TweenService")
+local gui = Instance.new("ScreenGui")
+gui.Name = "DumbsGui"
+gui.Parent = game.CoreGui
+
+local jumpButtonPosition = UDim2.new(0.5, 2, 0.5, 0) -- Example position of the mobile jump button
+
+local G = Instance.new("Frame")
+G.Size = UDim2.new(0.4, 0, 0.2, 0)
+G.Position = UDim2.new(jumpButtonPosition.X.Scale - 0.175, jumpButtonPosition.X.Offset, jumpButtonPosition.Y.Scale - 0.9, jumpButtonPosition.Y.Offset - 0.9) -- Adjusted position above the mobile jump button
+G.BackgroundColor3 = Color3.new(255, 255, 255)
+G.BorderColor3 = Color3.new(0, 255, 0)
+G.BorderSizePixel = 1
+G.Active = true
+G.BackgroundTransparency = 5
+G.Draggable = true
+G.Parent = gui
+
+local Corna = Instance.new("UICorner")
+Corna.CornerRadius = UDim.new(0, 8)
+Corna.Parent = G
+
+local T = Instance.new("TextLabel")
+T.Size = UDim2.new(0.7, 0, 0.25, 0)
+T.Position = UDim2.new(0.15, 0, 0.075, 0)
+T.BackgroundColor3 = Color3.new(255, 255, 255)
+T.BorderColor3 = Color3.new(1, 1, 1)
+T.BorderSizePixel = 1
+T.Text = "Jiafeiscript" -- This is the TITLE for the notif
+T.BackgroundTransparency = 1 
+T.TextColor3 = Color3.new(255, 255, 255)
+T.Font = Enum.Font.Arcade
+T.Parent = G
+T.TextSize = 50
+local T2 = Instance.new("TextLabel")
+T2.Size = UDim2.new(0.17, 0, 0.15, 0)
+T2.Position = UDim2.new(0.425, 0, 0.425, 0) -- Set to the middle of the frame
+T2.BackgroundColor3 = Color3.new(1, 1, 1)
+T2.BorderColor3 = Color3.new(1, 1, 1)
+T2.BorderSizePixel = 1
+T2.Text = "🎀─────────────────────────────────────🎀" -- This is the TEXT for the notif
+T2.BackgroundTransparency = 1 
+T2.TextColor3 = Color3.new(255, 182, 193)
+T2.Font = Enum.Font.Arcade
+T2.Parent = G
+T2.TextSize = 20
+local T2 = Instance.new("TextLabel")
+T2.Size = UDim2.new(0.17, 0, 0.15, 0)
+T2.Position = UDim2.new(0.425, 0, 0.590, 0) -- Set to the middle of the frame
+T2.BackgroundColor3 = Color3.new(1, 1, 1)
+T2.BorderColor3 = Color3.new(1, 1, 1)
+T2.BorderSizePixel = 1
+T2.Text = "discord.com/invite/QApPAnMVAE" -- This is the TEXT for the notif
+T2.BackgroundTransparency = 1 
+T2.TextColor3 = Color3.new(255, 255, 255)
+T2.Font = Enum.Font.Code
+T2.Parent = G
+T2.TextSize = 30
+-- Function to slide the frame in
+local function slideIn()
+    local tweenInfo = TweenInfo.new(2.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local goal = {}
+    goal.Position = UDim2.new(G.Position.X.Scale, G.Position.X.Offset, jumpButtonPosition.Y.Scale - 0.1, jumpButtonPosition.Y.Offset - 0.1) -- Adjusted position above the mobile jump button
+    local tween = TweenService:Create(G, tweenInfo, goal)
+    tween:Play()
+end
+
+-- Function to slide the frame out
+local function slideOut()
+    local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+    local goal = {}
+    goal.Position = UDim2.new(G.Position.X.Scale, G.Position.X.Offset, 1.2, 0) -- Off-screen position
+    local tween = TweenService:Create(G, tweenInfo, goal)
+    tween:Play()
+end
+
+
+-- Slide in the frame
+wait(5)
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://9119119619"
+sound.Volume =  20
+sound.Looped = true
+sound.Parent = workspace
+sound:Play(25)
+slideIn()
+
+
+-- Slide out the frame after 5 seconds
+wait(25)
+slideOut()
+wait(2)
+sound.Looped = false...
